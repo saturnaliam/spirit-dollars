@@ -6,9 +6,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.on('ready', () => {
     const tag = client.user?.username || "UNKNOWN";
     Logger.log("CLIENT", `Logged in as ${tag}!`);
+    register();
 })
 
-register();
 
 client.on('interactionCreate', interaction => {
     if (!interaction.isChatInputCommand()) return;

@@ -1,6 +1,6 @@
 import { CommandInteraction } from "npm:discord.js";
 
-class Command {
+export class Command {
     public readonly command: { name: string; description: string; };
 
     public constructor(name: string, description: string) {
@@ -9,5 +9,3 @@ class Command {
 
     public async run(interaction: CommandInteraction) {}
 }
-
-export default Command;

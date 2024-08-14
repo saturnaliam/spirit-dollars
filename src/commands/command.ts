@@ -1,10 +1,10 @@
-import { CommandInteraction } from "npm:discord.js";
+import { CommandInteraction, SharedSlashCommand } from "npm:discord.js";
 
 export class Command {
-    public readonly command: { name: string; description: string; };
+    public readonly command: SharedSlashCommand;
 
-    public constructor(name: string, description: string) {
-        this.command = { name: name, description: description };
+    public constructor(slash: SharedSlashCommand) {
+        this.command = slash;
     }
 
     public async run(interaction: CommandInteraction) {}

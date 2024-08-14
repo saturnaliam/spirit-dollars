@@ -1,8 +1,12 @@
 import { Command } from "./command.ts";
 import { User } from "../model.ts";
-import { CommandInteraction } from "npm:discord.js";
+import { CommandInteraction, SlashCommandBuilder } from "npm:discord.js";
 
-export const balance = new Command("balance", "gets the balance of the user");
+const data = new SlashCommandBuilder()
+    .setName("balance")
+    .setDescription("gets your balance");
+    
+export const balance = new Command(data);
 
 balance.run = async (interaction: CommandInteraction) => {
     const kv = await Deno.openKv("db/spirit.db");

@@ -5,7 +5,7 @@ export class Logger {
 
     private static writeFile(message: string) {
         Deno.writeTextFile("./discord.log", `${message}\n`, { append: true, create: true })
-            .catch(() => { console.error(`(${this.epoch()}) [LOGGING]: There was an error while writing to the logs file!`) });
+            .catch(() => { console.error(`[error] (${this.epoch()}) [LOGGING]: There was an error while writing to the logs file!`) });
     }
 
     private static writeConsole(logFunction: (data: string) => void, message: string) {
@@ -23,11 +23,11 @@ export class Logger {
 
     public static error(context: string, message: string) {
         const logged = this.format(context, message);
-        this.write(console.error, logged);
+        this.write(console.error, `[error] ${logged}`);
     }
 
     public static log(context: string, message: string) {
         const logged = this.format(context, message);
-        this.write(console.log, logged);
+        this.write(console.log, `[info] ${logged}`);
     }
 }

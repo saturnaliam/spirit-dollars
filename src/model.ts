@@ -1,10 +1,10 @@
 export interface Debt {
-    id: number;
+    id: string;
     debt: number;
 };
 
 export interface User {
-    id: number;
+    id: string;
     balance: number;
     debts: Debt[];
 };

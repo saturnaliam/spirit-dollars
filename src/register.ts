@@ -1,10 +1,12 @@
 
 import { CommandInteraction, REST, Routes } from "npm:discord.js";
 import { balance } from "./commands/balance.ts";
+import { leaderboard } from "./commands/leaderboard.ts";
 import { Logger } from "./logger.ts";
 
 const commands = [
-   balance
+   balance,
+   leaderboard
 ]
 
 export function register() {
